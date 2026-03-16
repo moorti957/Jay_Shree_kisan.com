@@ -1,0 +1,107 @@
+.srch {
+  width: 100%;
+  position: relative;
+  display: flex;
+  justify-content: center;
+  margin: 20px 0;
+}
+
+.srch input {
+  padding: 10px 45px 10px 20px; /* right padding for icon */
+  height: 50px;
+  width: 50%;
+  max-width: 600px;
+  border-radius: 50px;
+  border: 2px solid #009688;
+  font-size: 16px;
+  outline: none;
+}
+
+
+/* ✅ Search icon input ke andar right side fix */
+
+ .icn {
+  position: absolute;
+  right: calc(31% + 15px); /* keep aligned with input */
+
+  top: 50%;
+  transform: translateY(-50%);
+  color: #009688;
+  font-size: 20px;
+  /* pointer-events: none; */
+  cursor: pointer;
+}
+
+.results-list {
+  list-style: none;
+  padding-left: 0;
+}
+.results-list li {
+  padding: 6px 0;
+  border-bottom: 1px solid #ddd;
+}
+
+/* ✅ Results list input ke just neeche align hogi */
+.results {
+  position: absolute;
+  top: 100%;  /* input ke neeche */
+  width: 50%;  /* same width as input */
+  max-width: 600px;
+  background: #fff;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  margin-top: 5px;
+  z-index: 1000;
+  max-height: 200px;
+  overflow-y: auto;
+}
+
+.results p {
+  margin: 0;
+  padding: 10px;
+  cursor: pointer;
+}
+
+.results p:hover {
+  background: #f0f0f0;
+}
+
+/* ✅ Responsive Styles */
+@media (max-width: 1024px) {
+  .srch input {
+    width: 70%;
+  }
+  .srch .icn {
+    right: 17%;
+  }
+  .results {
+    width: 70%;
+  }
+}
+
+@media (max-width: 768px) {
+  .srch input {
+    width: 80%;
+  }
+  .srch .icn {
+    right: 12%;
+  }
+  .results {
+    width: 80%;
+  }
+}
+
+@media (max-width: 480px) {
+  .srch input {
+    width: 90%;
+    font-size: 14px;
+    height: 45px;
+  }
+  .srch .icn {
+    right: 8%;
+    font-size: 18px;
+  }
+  .results {
+    width: 90%;
+  }
+}

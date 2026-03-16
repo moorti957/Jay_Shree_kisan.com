@@ -1,0 +1,43 @@
+.loading-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  background: #f6fff6; /* हल्का हरा बैकग्राउंड */
+  font-family: "Segoe UI", sans-serif;
+}
+
+.loading-logo {
+  font-size: 2rem;
+  font-weight: bold;
+  margin-bottom: 20px;
+}
+
+.loading-logo .green {
+  color: #2ecc71; /* हरा */
+}
+
+.loading-logo .dot {
+  color: #27ae60;
+}
+
+.spinner {
+  border: 6px solid #e0e0e0;
+  border-top: 6px solid #2ecc71;
+  border-radius: 50%;
+  width: 60px;
+  height: 60px;
+  animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+.loading-text {
+  margin-top: 15px;
+  font-size: 1rem;
+  color: #555;
+}

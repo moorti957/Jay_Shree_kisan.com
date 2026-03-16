@@ -1,0 +1,211 @@
+.Callcard {
+  font-family: 'Segoe UI', Arial, sans-serif;
+  background: linear-gradient(135deg, #f3f7f3, #eaf5ea);
+  padding: 20px;
+  min-height: 100vh;
+}
+
+/* 🔘 Toggle Buttons */
+
+.toggle-box {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 25px;
+  background: #f1f8e9;
+  border-radius: 10px;
+  overflow: hidden;
+  width: fit-content;
+  margin: 0 auto 25px auto;
+  border: 2px solid #2e7d32;
+  box-shadow: 0 3px 6px rgba(0,0,0,0.1);
+}
+
+.tab-btn {
+  flex: 1;
+  padding: 12px 26px;
+  font-size: 18px;
+  font-weight: 600;
+  border: none;
+  background: transparent;
+  cursor: pointer;
+  color: #2e7d32;
+  transition: all 0.3s ease;
+}
+
+.tab-btn.active {
+  background: #2e7d32;
+  color: #fff;
+  box-shadow: inset 0 -2px 8px rgba(0,0,0,0.2);
+}
+
+
+/* 🔍 Search + Filter */
+
+.filter-box {
+  display: flex;
+  justify-content: center;
+  gap: 12px;
+  margin: 15px auto 30px auto;
+  max-width: 700px;
+}
+
+.filter-box input,
+.filter-box select {
+  height: 42px;
+  padding: 10px 14px;
+  border: 2px solid #2e7d32;
+  border-radius: 8px;
+  font-size: 16px;
+  outline: none;
+  transition: all 0.3s ease;
+}
+
+.filter-box input:focus,
+.filter-box select:focus {
+  border-color: #43a047;
+  box-shadow: 0 0 6px rgba(67,160,71,0.4);
+}
+
+.filter-box select option {
+  background: #66bb6a;
+  color: #fff;
+}
+
+.filter-box select option:hover {
+  background: #fff;
+  color: #66bb6a;
+}
+
+
+/* 📦 Cards Layout */
+
+.container {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+  gap: 22px;
+}
+
+.card {
+  background: #fff;
+  border-radius: 14px;
+  border: 1px solid #e0f2e0;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.08);
+  padding: 22px;
+  text-align: center;
+  transition: transform 0.3s, box-shadow 0.3s;
+  position: relative;
+  overflow: hidden;
+  height: auto;
+}
+
+.card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 8px 16px rgba(0,0,0,0.15);
+}
+
+.farmer-icon {
+  font-size: 52px;
+  margin-bottom: 8px;
+  color: #2e7d32;
+}
+
+.farmer-name {
+  font-size: 22px;
+  font-weight: bold;
+  margin: 12px 0;
+  color: #1b5e20;
+}
+
+.info {
+  text-align: left;
+  margin: 12px 0;
+  line-height: 1.7;
+  color: #2b7d29dd;
+  font-size: 15px;
+}
+
+.info strong {
+  color: #2e7d32;
+}
+
+
+/* 📞 Contact Button */
+
+.contact-btn {
+  display: inline-block;
+  margin-top: 14px;
+  padding: 10px 20px;
+  border-radius: 10px;
+  text-decoration: none;
+  font-weight: 600;
+  font-size: 15px;
+  color: #fff;
+  background: linear-gradient(135deg, #43a047, #2e7d32);
+  transition: all 0.3s;
+  position: relative;
+  overflow: hidden;
+}
+
+
+.contact-btn:hover {
+  background: linear-gradient(135deg, #2e7d32, #1b5e20);
+}
+
+
+
+/* 🌿 View More Button */
+
+.view-btn-box {
+  text-align: center;
+  margin-top: 25px;
+}
+
+.view-btn {
+  padding: 10px 22px;
+  border: none;
+  border-radius: 8px;
+  background: linear-gradient(135deg, #43a047, #2e7d32);
+  color: #fff;
+  font-size: 16px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.view-btn:hover {
+  background: linear-gradient(135deg, #2e7d32, #1b5e20);
+}
+
+
+/* 📱 Mobile optimization */
+
+@media (max-width: 600px) {
+  .filter-box {
+    flex-direction: column;
+    gap: 12px;
+    width: 100%;
+    padding: 0 10px;
+  }
+
+  .filter-box input,
+  .filter-box select {
+    width: 100%;
+  }
+
+  .tab-btn {
+    font-size: 16px;
+    padding: 8px 12px;
+  }
+
+  .card {
+    padding: 15px;
+  }
+
+  .farmer-name {
+    font-size: 18px;
+  }
+
+  .info {
+    font-size: 14px;
+  }
+}

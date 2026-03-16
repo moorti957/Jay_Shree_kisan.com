@@ -1,0 +1,142 @@
+.deal-container {
+  max-width: 1200px;
+  margin: auto;
+  padding: 20px;
+}
+
+.deal-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 50px;
+  margin-left: -50px;
+}
+
+.deal-header h2 {
+  font-size: 28px;
+  font-weight: 600;
+  color: #243046;
+}
+
+.deal-pra{
+    display: flex;
+}
+
+.deal-pra p {
+  color: #6c757d;
+  font-size: 16px;
+  flex: 1;
+  margin-left: -50px;
+  margin-top: -40px;
+}
+
+
+
+.nav-buttons {
+  display: flex;
+  gap: 10px;
+}
+
+.nav-buttons button {
+  background: #4ade80;
+  border: none;
+  padding: 8px;
+  border-radius: 6px;
+  cursor: pointer;
+  color: white;
+}
+.box{
+    width: 1300px;
+    height: 330px;
+    /* background-color: #4ade80; */
+    border: 1px solid #f87171;
+    margin-left: -50px;
+}
+
+.deal-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 20px;
+}
+
+.deal-card {
+  display: flex;
+  /* gap: 20px; */
+  /* padding: 15px; */
+  border-left: 1px solid #f87171;
+  /* border-radius: 8px; */
+  align-items: center;
+}
+
+.product-image img {
+  width: 300px;
+  object-fit: contain;
+}
+
+.product-info h3 {
+  font-size: 26px;
+  font-weight: 600;
+  color: #243046;
+}
+
+.sizes button {
+  border: 1px solid #ccc;
+  padding: 4px 8px;
+  margin: -60px 10px 50px 0;
+  border-radius: 4px;
+  background: white;
+  cursor: pointer;
+}
+
+.rating {
+  color: #facc15;
+  font-size: 16px;
+  margin-top: -40px;
+}
+
+.price {
+  font-size: 20px;
+  font-weight: 600;
+  color: #f97316;
+  margin: 8px 0;
+}
+
+.cart-actions {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  margin: 10px 0;
+}
+
+.qty button {
+  border: 1px solid #ddd;
+  padding: 4px 10px;
+  background: white;
+  cursor: pointer;
+}
+
+.qty span {
+  margin: 0 10px;
+}
+
+.add-cart {
+  background: #4ade80;
+  padding: 11px;
+  border-radius: 50%;
+  color: white;
+  cursor: pointer;
+  margin-left: 180px;
+}
+
+.progress {
+  height: 8px;
+  background: #e5e7eb;
+  border-radius: 6px;
+  margin-top: 8px;
+}
+
+.progress-bar {
+  height: 100%;
+  background: #22c55e;
+  border-radius: 6px;
+}

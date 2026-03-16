@@ -1,0 +1,130 @@
+.subscriber-page {
+  padding: 20px;
+  font-family: sans-serif;
+}
+
+.subscriber-table {
+  margin-top: 20px;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  overflow: hidden;
+}
+
+.subscriber-header,
+.subscriber-row {
+  display: grid;
+  grid-template-columns: 1fr 2fr;
+  padding: 10px;
+  border-bottom: 1px solid #eee;
+}
+
+.subscriber-header {
+  background-color: #f8f8f8;
+  font-weight: bold;
+}
+
+.subscriber-row p {
+  margin: 0;
+}
+
+
+
+
+
+
+
+
+.subscriber-page {
+  padding: 20px;
+  font-family: Arial, sans-serif;
+}
+
+.subscriber-page h2 {
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.subscriber-table {
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  overflow: hidden;
+}
+
+.subscriber-header,
+.subscriber-row {
+  display: grid;
+  grid-template-columns: 50px 1fr 2fr 1.5fr;
+  padding: 12px;
+  border-bottom: 1px solid #ddd;
+  align-items: center;
+}
+
+.subscriber-header {
+  background: #f5f5f5;
+  font-weight: bold;
+}
+
+.subscriber-row:nth-child(even) {
+  background: #fafafa;
+}
+
+.no-data {
+  text-align: center;
+  padding: 20px;
+  color: #777;
+}
+
+.subscriber-page {
+  padding: 20px;
+  font-family: "Segoe UI", sans-serif;
+}
+
+.subscriber-page h2 {
+  text-align: center;
+  margin-bottom: 20px;
+  color: #2d3436;
+}
+
+.subscriber-table {
+  width: 90%;
+  margin: auto;
+  border: 1px solid #ddd;
+  border-radius: 10px;
+  overflow: hidden;
+  background: #fff;
+  box-shadow: 0px 2px 8px rgba(0,0,0,0.1);
+}
+
+.subscriber-header,
+.subscriber-row {
+  display: grid;
+  grid-template-columns: 1fr 2fr 1fr; /* Name | Email | Date */
+  padding: 12px 16px;
+  align-items: center;
+}
+
+.subscriber-header {
+  background: #f4f6f8;
+  font-weight: bold;
+  color: #333;
+  border-bottom: 2px solid #ddd;
+}
+
+.subscriber-row {
+  border-bottom: 1px solid #eee;
+  transition: background 0.2s;
+}
+
+.subscriber-row:hover {
+  background: #fafafa;
+}
+
+.subscriber-row span {
+  color: #555;
+}
+
+.no-data {
+  text-align: center;
+  padding: 20px;
+  color: #888;
+}

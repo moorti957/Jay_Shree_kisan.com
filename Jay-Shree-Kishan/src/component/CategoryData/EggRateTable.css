@@ -1,0 +1,98 @@
+.egg-container {
+  max-width: 1100px;
+  margin: 20px auto;
+  padding: 20px;
+  background: #f8f9fa;
+  border-radius: 10px;
+  /* box-shadow: 0px 3px 10px rgba(0, 0, 0, 0.1); */
+  font-family: Arial, sans-serif;
+  text-align: center;
+  /* border: 1px solid; */
+}
+
+.egg-table h3 {
+  /* background: #0aa06e; */
+  color: #008577;
+  padding: 10px;
+  border-radius: 8px;
+  font-size: 20px;
+  font-weight: 700;
+  margin-bottom: 24px;
+  width: 149%;
+  margin-top: 10px;
+  font-family: ''Helvetica Neue', Arial, sans-serif;';
+
+}
+
+.egg-table {
+  width: 100%;
+  height: 475px;
+  border-collapse: collapse;
+  margin-bottom: 20px;
+    /* border: 2px solid; */
+  box-shadow: 2px 2px 2px 2px rgb(226, 218, 218);
+  background-color: white;
+  border-radius: 10px;
+}
+
+.egg-table:hover{
+  border:2px solid #009688;
+    box-shadow: 4px 4px 4px 3px rgb(244, 236, 236);
+    transition: 0.1s ;
+    /* border-radius: 10px; */
+}
+
+.egg-table td {
+  /* border-bottom: 1px solid #ddd; */
+  border-top: 1px solid #ddd;
+  border-right: 1px solid #ddd;
+  padding: 12px;
+  text-align: left;
+  font-size: 14px;
+  color: #008577;
+  font-family: 'Helvetica Neue', Arial, sans-serif;
+}
+
+.egg-table td strong{
+  font-weight: bolder;
+}
+/* .egg-table tr:nth-child(even) {
+  background: #f8fdfb;
+} */
+.note-class{
+  width: 1050px;
+  /* background-color: white; */
+  /* height: 100px; */
+}
+.notes {
+  font-size: 18px;
+  color: #444;
+  background: #f9f9f9;
+  padding: 12px;
+  border-radius: 6px;
+  /* line-height: 0.5; */
+  font-family: 'Helvetica Neue', Arial, sans-serif;
+   border: 2px solid #fafcfc;
+  
+}
+
+ .notes:hover{
+    border:2px solid #008577;
+    transition: 0.5s;
+    
+} 
+@media (max-width: 600px) {
+  .egg-container {
+    padding: 15px;
+  }
+  .egg-container h3 {
+    font-size: 16px;
+  }
+  .egg-table td {
+    font-size: 12px;
+    padding: 8px;
+  }
+  .notes {
+    font-size: 12px;
+  }
+}

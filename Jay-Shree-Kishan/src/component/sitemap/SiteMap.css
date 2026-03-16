@@ -1,0 +1,96 @@
+/* Full page wrapper with left/right margin */
+.sitemap-wrapper {
+  display: flex;
+  justify-content: center;
+  padding: 20px;
+  position: relative;
+}
+
+.sitemap-container {
+  max-width: 1200px; /* fix width */
+  width: 100%;
+  margin: 0 auto;
+  font-family: "Arial", sans-serif;
+  color: #222;
+}
+
+/* Breadcrumb */
+.breadcrumb {
+  display: flex;
+  align-items: center;
+  background: #f7f7f7;
+  padding: 8px 16px;
+  border-radius: 6px;
+  margin-bottom: 20px;
+  font-size: 14px;
+  font-weight: 600;
+}
+
+.home-icon {
+  margin-right: 8px;
+}
+
+.divider {
+  margin: 0 8px;
+}
+
+.active {
+  color: #333;
+}
+
+/* Title */
+.sitemap-title {
+  font-size: 22px;
+  font-weight: bold;
+  margin-bottom: 20px;
+  text-align: center;
+}
+
+/* Content Grid */
+.sitemap-content {
+  display: flex;
+  justify-content: space-between;
+  gap: 60px;
+}
+
+/* Lists */
+.sitemap-left ol,
+.sitemap-right ol {
+  list-style: decimal;
+  margin-left: 20px;
+}
+
+.sitemap-left li,
+.sitemap-right li {
+  margin: 6px 0;
+  transition: color 0.3s ease;
+  cursor: pointer;
+}
+
+/* Hover effect green */
+.sitemap-left li:hover,
+.sitemap-right li:hover {
+  color: green;
+}
+
+/* Scroll To Top Button */
+.scrollTop {
+  position: fixed;
+  width: 45px;
+  right: 20px;
+  bottom: 20px;
+  background: green;
+  color: #fff;
+  border: none;
+  border-radius: 50%;
+  padding: 12px;
+  cursor: pointer;
+  font-size: 18px;
+  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
+  transition: background 0.3s;
+  z-index: 100;
+}
+
+.scrollTop:hover {
+  background: darkgreen;
+}

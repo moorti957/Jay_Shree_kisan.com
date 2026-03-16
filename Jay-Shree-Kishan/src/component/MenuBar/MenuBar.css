@@ -1,0 +1,252 @@
+/* ===== MENU BAR ===== */
+.menu-bar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 12px 20px;
+  background: #fff;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+  position: relative;
+  flex-wrap: wrap;
+}
+
+/* Hamburger icon (hidden on desktop) */
+.hamburger {
+  display: none;
+  font-size: 24px;
+  cursor: pointer;
+  user-select: none;
+}
+
+/* Navigation links container */
+.menu-links {
+  display: flex;
+  gap: 30px;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  align-items: center;
+  transition: all 0.3s ease;
+}
+
+/* Individual link items */
+.menu-links li {
+  position: relative;
+}
+
+.menu-links a,
+.menu-links button {
+  background: none;
+  border: none;
+  font-size: 16px;
+  font-weight: 500;
+  cursor: pointer;
+  text-decoration: none;
+  color: #2d3e50;
+  transition: color 0.3s;
+  padding: 5px 0;
+}
+
+.menu-links a:hover,
+.menu-links button:hover {
+  color: #63c17d;
+}
+
+/* Dropdown menu (first level) */
+.dropdown-menu {
+  position: absolute;
+  top: 35px;
+  left: 0;
+  background: #fff;
+  border: 1px solid #eee;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+  border-radius: 6px;
+  list-style: none;
+  padding: 10px 0;
+  width: 220px;
+  z-index: 100;
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.2s, visibility 0.2s;
+}
+
+.menu-links li:hover .dropdown-menu {
+  opacity: 1;
+  visibility: visible;
+}
+
+.dropdown-menu li {
+  padding: 8px 15px;
+  cursor: pointer;
+  white-space: nowrap;
+}
+
+.dropdown-menu li:hover {
+  background: #f5f5f5;
+}
+
+/* Submenu (second level) */
+.sub-dropdown {
+  position: relative;
+}
+
+.sub-menu {
+  position: absolute;
+  top: 0;
+  left: 100%;
+  background: #fff;
+  border: 1px solid #eee;
+  border-radius: 6px;
+  list-style: none;
+  padding: 10px 0;
+  width: 200px;
+  z-index: 110;
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.2s, visibility 0.2s;
+}
+
+.sub-dropdown:hover .sub-menu {
+  opacity: 1;
+  visibility: visible;
+}
+
+.sub-menu li {
+  padding: 8px 15px;
+  cursor: pointer;
+}
+
+.sub-menu li:hover {
+  background: #f5f5f5;
+}
+
+/* Gift button */
+.gift-btn {
+  background: #63c17d;
+  border: none;
+  padding: 10px 18px;
+  color: #fff;
+  border-radius: 6px;
+  font-size: 15px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  cursor: pointer;
+  transition: background 0.3s;
+  white-space: nowrap;
+}
+
+.gift-btn:hover {
+  background: #52a86a;
+}
+
+.gift-icon {
+  font-size: 16px;
+}
+
+/* Optional product options (if used) */
+.product-options {
+  display: flex;
+  gap: 15px;
+  margin-top: 10px;
+  width: 100%;
+}
+
+/* ===== RESPONSIVE STYLES ===== */
+@media (max-width: 992px) {
+  .menu-links {
+    gap: 20px;
+  }
+  .menu-links a,
+  .menu-links button {
+    font-size: 15px;
+  }
+}
+
+@media (max-width: 768px) {
+  .hamburger {
+    display: block;
+  }
+
+  .menu-links {
+    display: none;
+    flex-direction: column;
+    align-items: flex-start;
+    width: 100%;
+    background: #fff;
+    position: absolute;
+    top: 60px;
+    left: 0;
+    padding: 20px;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+    gap: 15px;
+    z-index: 99;
+  }
+
+  .menu-links.active {
+    display: flex;
+  }
+
+  .menu-links li {
+    width: 100%;
+  }
+
+  /* Reset dropdown positioning for mobile */
+  .dropdown-menu,
+  .sub-menu {
+    position: static;
+    opacity: 1;
+    visibility: visible;
+    box-shadow: none;
+    border: none;
+    width: 100%;
+    padding-left: 20px;
+    margin-top: 5px;
+    background: #f9f9f9;
+  }
+
+  .dropdown-menu li,
+  .sub-menu li {
+    padding: 8px 15px;
+  }
+
+  /* Show nested menus by default on mobile (or you can use a click toggle) */
+  .menu-links li:hover .dropdown-menu {
+    display: block; /* Adjust if using JS toggle */
+  }
+
+  .gift-btn {
+    margin-left: auto;
+  }
+}
+
+@media (max-width: 576px) {
+  .menu-bar {
+    padding: 10px 15px;
+  }
+  .gift-btn {
+    padding: 8px 14px;
+    font-size: 14px;
+  }
+  .hamburger {
+    font-size: 22px;
+  }
+  .menu-links a,
+  .menu-links button {
+    font-size: 15px;
+  }
+}
+
+@media (max-width: 480px) {
+  .menu-links {
+    padding: 15px;
+  }
+  .gift-btn {
+    padding: 6px 12px;
+    font-size: 13px;
+  }
+  .menu-links a,
+  .menu-links button {
+    font-size: 14px;
+  }
+}

@@ -1,0 +1,134 @@
+.pricing-container {
+  text-align: center;
+  padding: 40px 20px;
+  background: #f8fdfb;
+  font-family: Arial, sans-serif;
+}
+
+.title {
+  color: #008577;
+  text-align: center !important;
+  font-weight: 700;
+  font-size: 2.5rem;
+  margin-bottom: 1rem;margin-left: 120px;
+}
+
+.subtitle {
+  font-size: 1.25rem;
+  font-weight: 300;
+  max-width: 850px;
+  margin: 0 auto 3rem auto;
+  font-family: 'Helvetica Neue', Arial, sans-serif;
+  color: #555;
+  text-align: center !important;
+  display: block;
+}
+
+.pricing-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); /* auto responsive */
+  gap: 30px;
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 0 10px;
+}
+
+.plan-card {
+  background: white;
+  padding: 60px;
+  border-radius: 12px;
+  border: 1px solid #ddd;
+  box-shadow: 0px 3px 10px rgba(0,0,0,0.08);
+  position: relative;
+  transition: transform 0.3s ease, border-color 0.3s ease;
+}
+
+.plan-card:hover {
+  transform: translateY(-5px);
+  border: 1px solid #0aa06e;   /* ✅ hover पर हरी border */
+}
+
+.plan-card .tag {
+  position: absolute;
+  top: -10px;
+  left: 20px;
+  background: #ff9800;
+  color: white;
+  padding: 4px 10px;
+  border-radius: 20px;
+  font-size: 12px;
+  font-weight: bold;
+}
+
+.plan-card.highlight .tag {
+  background: #009688;
+}
+
+.plan-card h3 {
+  font-size: 18px;
+  font-weight: 500;
+  margin-bottom: 23px;
+  color: #222;
+}
+
+.price {
+  font-size: 28px;
+  color: #0aa06e;
+  margin: 20px 0;
+}
+
+.plan-card ul {
+  text-align: left;
+  margin: 20px 0;
+  padding-left: 15px;
+}
+
+.plan-card ul li {
+  font-size: 16px;
+  margin: 16px 0;
+  color: #333;
+  font-weight: 300px;
+}
+
+.bton {
+  width: 100%;
+  padding: 12px;
+  background: #0aa06e;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  font-size: 15px;
+  cursor: pointer;
+  transition: 0.3s;
+  
+}
+
+.bton:hover {
+  background: #08895d;
+}
+
+/* ✅ 4th card always center */
+.plan-card:nth-child(4) {
+  grid-column: 1 / -1;   /* पूरे row को ले */
+  justify-self: center;  /* center align */
+  max-width: 400px;      /* fix width */
+}
+
+/* Mobile adjustments */
+@media (max-width: 768px) {
+  .title {
+    font-size: 2rem;
+    margin-left: 0;
+  }
+  .subtitle {
+    font-size: 1rem;
+  }
+  .price {
+    font-size: 24px;
+  }
+  .plan-card:nth-child(4) {
+    grid-column: auto;   /* mobile में normal behave */
+    justify-self: auto;
+    max-width: 100%;
+  }
+}

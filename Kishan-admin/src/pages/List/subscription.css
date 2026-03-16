@@ -1,0 +1,64 @@
+.orders-container {
+  padding: 20px;
+  background: #f9fafb;
+  border-radius: 12px;
+}
+
+.orders-title {
+  font-size: 1.8rem;
+  font-weight: 600;
+  color: #333;
+  margin-bottom: 20px;
+}
+
+.orders-table {
+  width: 100%;
+  border-collapse: collapse;
+  background: #fff;
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+}
+
+.orders-table th, .orders-table td {
+  padding: 12px 15px;
+  text-align: left;
+  border-bottom: 1px solid #eee;
+}
+
+.orders-table th {
+  background: #2c3e50;
+  color: white;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.orders-table tr:hover {
+  background-color: #f3f4f6;
+}
+
+.status-paid {
+  color: green;
+  font-weight: 600;
+}
+
+.status-failed {
+  color: red;
+  font-weight: 600;
+}
+
+.status-created {
+  color: orange;
+  font-weight: 600;
+}
+
+.no-orders {
+  color: #666;
+  font-size: 1rem;
+}
+
+.orders-loading {
+  text-align: center;
+  font-size: 1.2rem;
+  color: #555;
+}

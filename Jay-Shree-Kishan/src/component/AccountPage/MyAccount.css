@@ -1,0 +1,86 @@
+/* MyAccount.css */
+
+.account-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 40px 20px;
+  min-height: 100vh;
+  background-color: #f9f9f9;
+}
+
+.account-card {
+  background-color: #fff;
+  padding: 30px;
+  border-radius: 12px;
+  width: 100%;
+  max-width: 400px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  text-align: center;
+}
+
+.account-card h2 {
+  margin-bottom: 20px;
+}
+
+.profile-img {
+  width: 80px;
+  height: 80px;
+  background-color: #ddd;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: bold;
+  margin: 0 auto 20px;
+}
+
+form {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+label {
+  display: flex;
+  flex-direction: column;
+  text-align: left;
+  font-weight: 500;
+}
+
+.input-accunt,
+select {
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  margin-top: 5px;
+  font-size: 16px;
+}
+
+.update-btn,
+.signout-btn {
+  padding: 12px;
+  border: none;
+  border-radius: 8px;
+  font-size: 16px;
+  cursor: pointer;
+}
+
+.update-btn {
+  background-color: #28a745;
+  color: white;
+  margin-top: 10px;
+}
+
+.signout-btn {
+  background-color: #dc3545;
+  color: white;
+  margin-top: 10px;
+}
+
+/* Responsive */
+@media (max-width: 500px) {
+  .account-card {
+    padding: 20px;
+  }
+}

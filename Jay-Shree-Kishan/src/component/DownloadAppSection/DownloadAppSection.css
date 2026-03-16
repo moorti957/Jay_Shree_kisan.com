@@ -1,0 +1,97 @@
+.download-section {
+  text-align: center;
+  background-color: #fff;
+  padding: 60px 20px;
+}
+
+.download-title {
+  font-size: 28px;
+  font-weight: 600;
+  color: #222;
+  margin-bottom: 8px;
+}
+
+.download-subtitle {
+  color: #555;
+  font-size: 16px;
+  max-width: 600px;
+  margin: 0 auto 30px auto;
+  line-height: 1.6;
+}
+
+.icon-bo1 {
+  width: 90px;
+  height: 90px;
+  border: 2px solid #009966;
+  border-radius: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto 20px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+.phone-icon {
+  font-size: 40px;
+  color: #009966;
+}
+
+.button-group {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 12px;
+  margin-top: 10px;
+}
+
+@media (min-width: 600px) {
+  .button-group {
+    flex-direction: row;
+    justify-content: center;
+  }
+}
+
+.playstore-btn,
+.appstore-btn {
+  border: none;
+  border-radius: 10px;
+  padding: 12px 20px;
+  font-size: 15px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  transition: 0.3s;
+}
+
+.playstore-btn {
+  background-color: #009966;
+  color: white;
+}
+
+.playstore-btn:hover {
+  background-color: #007b55;
+}
+
+.appstore-btn {
+  background-color: white;
+  border: 2px solid #ccc;
+  color: #333;
+}
+
+.appstore-btn:hover {
+  background-color: #f7f7f7;
+}
+
+.feature-list {
+  margin-top: 30px;
+  list-style: none;
+  padding: 0;
+  color: #444;
+  font-size: 16px;
+  line-height: 1.8;
+}
+
+.feature-list li {
+  margin-bottom: 6px;
+}
