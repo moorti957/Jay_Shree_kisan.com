@@ -5,6 +5,7 @@ import multer from "multer";
 import fs from "fs";
 import dotenv from "dotenv";
 import path from "path";
+
 import Product from "./models/Product.js";
 import authRoutes from "./routes/authRoutes.js";
 import userRoutes from "./routes/userRoutes.js";
@@ -19,31 +20,49 @@ import adminRoutes from "./routes/adminRoutes.js";
 dotenv.config();
 
 const app = express();
+
 app.use(cors());
 app.use(express.json());
 
-// MongoDB connect
+/* ===============================
+   MongoDB Connection
+================================ */
 mongoose
-  .connect(process.env.MONGO_URI, { dbName: "jayshreekisan" })
+  .connect(process.env.MONGO_URI, {
+    dbName: "jayshreekisan",
+  })
   .then(() => console.log("✅ MongoDB Connected"))
   .catch((err) => console.log("❌ MongoDB Error:", err));
 
-// Ensure uploads folder exists
+/* ===============================
+   Ensure uploads folder exists
+================================ */
 if (!fs.existsSync("./uploads")) {
   fs.mkdirSync("./uploads");
 }
 
-// Multer setup
+/* ===============================
+   Multer Setup (Image Upload)
+================================ */
 const storage = multer.diskStorage({
-  destination: (req, file, cb) => cb(null, "./uploads"),
-  filename: (req, file, cb) => cb(null, Date.now() + "-" + file.originalname),
+  destination: (req, file, cb) => {
+    cb(null, "./uploads");
+  },
+  filename: (req, file, cb) => {
+    cb(null, Date.now() + "-" + file.originalname);
+  },
 });
+
 const upload = multer({ storage });
 
-// Serve uploads folder
+/* ===============================
+   Serve Uploads Folder
+================================ */
 app.use("/uploads", express.static("uploads"));
 
-// Product routes
+/* ===============================
+   Product API
+================================ */
 app.post("/api/products", upload.single("image"), async (req, res) => {
   try {
     const productData = {
@@ -58,22 +77,39 @@ app.post("/api/products", upload.single("image"), async (req, res) => {
 
     const product = new Product(productData);
     await product.save();
-    res.json({ success: true, message: "Product saved!", product });
+
+    res.json({
+      success: true,
+      message: "Product saved successfully",
+      product,
+    });
   } catch (error) {
-    res.status(500).json({ success: false, error: error.message });
+    res.status(500).json({
+      success: false,
+      error: error.message,
+    });
   }
 });
 
 app.get("/api/products", async (req, res) => {
   try {
     const products = await Product.find().sort({ _id: -1 });
-    res.json({ success: true, products });
+
+    res.json({
+      success: true,
+      products,
+    });
   } catch (error) {
-    res.status(500).json({ success: false, error: error.message });
+    res.status(500).json({
+      success: false,
+      error: error.message,
+    });
   }
 });
 
-// API Routes
+/* ===============================
+   Other API Routes
+================================ */
 app.use("/api/auth", authRoutes);
 app.use("/api/users", userRoutes);
 app.use("/api/newsletter", newsletterRoutes);
@@ -84,29 +120,18 @@ app.use("/api/contact", contactRoutes);
 app.use("/api/admin", adminAuth);
 app.use("/api/admin", adminRoutes);
 
-
-const __dirname = path.resolve();
-
-// Paths to builds
-const frontendPath = path.join(__dirname, "../Jay-Shree-Kishan/build");
-const adminPath = path.join(__dirname, "../Kishan-admin/build");
-
-// Serve admin build at /admin  
-app.use("/admin", express.static(adminPath));
-app.get(/^\/admin(\/.*)?$/, (req, res) => {
-  res.sendFile(path.join(adminPath, "index.html"));
+/* ===============================
+   Root Route
+================================ */
+app.get("/", (req, res) => {
+  res.send("🚀 Jay Shree Kisan Backend API Running");
 });
 
-// Serve main frontend build at /
-app.use(express.static(frontendPath));
-app.get(/^\/(?!admin).*/, (req, res) => {
-  res.sendFile(path.join(frontendPath, "index.html"));
-});
-
-
-
-// Start server
+/* ===============================
+   Start Server
+================================ */
 const PORT = process.env.PORT || 5000;
-app.listen(PORT, () =>
-  console.log(`🚀 Server running at http://localhost:${PORT}`)
-);
+
+app.listen(PORT, () => {
+  console.log(`🚀 Server running on port ${PORT}`);
+});
