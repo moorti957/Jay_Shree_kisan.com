@@ -1,8 +1,6 @@
 import axios from "axios";
 
-const API = axios.create({
-  baseURL: "https://jay-shree-kisan-com.onrender.com/api",
-});
+const API = axios.create({ baseURL: "http://localhost:5000/api" });
 
 export const registerUser = (data) => API.post("/auth/register", data);
 export const generateOtp = (data) => API.post("/auth/generate-otp", data);

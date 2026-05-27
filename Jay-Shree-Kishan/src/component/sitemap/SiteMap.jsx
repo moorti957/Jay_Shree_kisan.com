@@ -1,149 +1,144 @@
 import React, { useEffect, useState } from "react";
-import { FaHome, FaArrowUp } from "react-icons/fa";
 import "./SiteMap.css";
-import { useNavigate } from "react-router-dom";
+import { FaHome, FaArrowUp, FaDrumstickBite, FaTint, FaUser, FaTag, FaInfoCircle } from "react-icons/fa";
 import { Link } from "react-router-dom";
+
+const sitemapData = [
+  {
+    id: 1,
+    icon: <FaDrumstickBite />,
+    title: "Shop Categories",
+    items: [
+      { label: "Meats & Sea Foods" },
+      { label: "Breads & Bakery" },
+      {
+        label: "Breakfast & Dairy",
+        children: ["Apple", "Banana", "Fruits", "Food"],
+      },
+      { label: "Grocery & Staples" },
+      { label: "Fruits & Vegetables" },
+    ],
+  },
+  {
+    id: 2,
+    icon: <FaTint />,
+    title: "Fruits & Juice",
+    items: [
+      { label: "Lemon Juices", children: ["Garlic", "Orange"] },
+      { label: "Mango Juices", children: ["Cherry", "Pineapple"] },
+      { label: "Orange Juice", children: ["Apple", "Mango"] },
+      { label: "Organic", children: ["Strawberry", "Watermelon"] },
+      { label: "Apple Juices", children: ["Banana", "Kiwi"] },
+      { label: "Fresh Fruits", children: ["Chiku", "Fruits"] },
+    ],
+  },
+  {
+    id: 3,
+    icon: <FaUser />,
+    title: "My Account",
+    items: [
+      { label: "Account Information" },
+      { label: "Password" },
+      { label: "Address Book" },
+      { label: "Order History" },
+      { label: "Downloads" },
+    ],
+  },
+  {
+    id: 4,
+    icon: <FaTag />,
+    title: "Quick Links",
+    items: [
+      { label: "Special Offers" },
+      { label: "Shopping Cart" },
+      { label: "Checkout" },
+      { label: "Search" },
+    ],
+  },
+  {
+    id: 5,
+    icon: <FaInfoCircle />,
+    title: "Information",
+    items: [
+      { label: "About Us" },
+      { label: "Delivery Information" },
+      { label: "Privacy Policy" },
+      { label: "Terms & Conditions" },
+      { label: "Contact Us" },
+    ],
+  },
+];
 
 const SiteMap = () => {
   const [showScroll, setShowScroll] = useState(false);
-  
 
-  // Show button after scrolling
   useEffect(() => {
     const checkScrollTop = () => {
-      if (!showScroll && window.scrollY > 300) {
-        setShowScroll(true);
-      } else if (showScroll && window.scrollY <= 300) {
-        setShowScroll(false);
-      }
+      setShowScroll(window.scrollY > 300);
     };
     window.addEventListener("scroll", checkScrollTop);
     return () => window.removeEventListener("scroll", checkScrollTop);
-  }, [showScroll]);
+  }, []);
 
-  // Scroll to top
   const scrollToTop = () => {
     window.scrollTo({ top: 0, behavior: "smooth" });
   };
 
   return (
-    <div className="sitemap-wrapper">
-      <div className="sitemap-container">
-        {/* Breadcrumb */}
-        <div className="breadcrumb">
-          <Link to='/' ><FaHome  className="home-icon" /></Link>
-          <span className="divider">|</span>
-          <span className="active">Site Map</span>
-        </div>
+    <div className="sm-wrap">
 
-        {/* Page Title */}
-        <h2 className="sitemap-title">Site Map</h2>
-
-        {/* Main Content */}
-        <div className="sitemap-content">
-          {/* Left Side */}
-          <div className="sitemap-left">
-            <ol>
-              <li>Meats & Sea Foods</li>
-              <li>Breads & Bakery</li>
-              <li>
-                Breakfast & Dairy
-                <ol>
-                  <li>Apple
-                    <ol>
-                      <li>Banana</li>
-                      <li>Food</li>
-                    </ol>
-                  </li>
-                  <li>Fruits
-                    <ol>
-                      <li>Juice</li>
-                      <li>Mango</li>
-                    </ol>
-                  </li>
-                </ol>
-              </li>
-              <li>
-                Fruits & Juice
-                <ol>
-                  <li>Lemon Juices
-                    <ol>
-                      <li>Garlic</li>
-                      <li>Orange</li>
-                    </ol>
-                  </li>
-                  <li>Mango Juices
-                    <ol>
-                      <li>Cherry</li>
-                      <li>Pineapple</li>
-                    </ol>
-                  </li>
-                  <li>Orange Juice
-                    <ol>
-                      <li>Apple</li>
-                      <li>Mango</li>
-                    </ol>
-                  </li>
-                  <li>Organic
-                    <ol>
-                      <li>Strawberry</li>
-                      <li>Watermelon</li>
-                    </ol>
-                  </li>
-                  <li>Apple Juices
-                    <ol>
-                      <li>Banana</li>
-                      <li>Kiwi</li>
-                    </ol>
-                  </li>
-                  <li>Fresh Fruits
-                    <ol>
-                      <li>Chiku</li>
-                      <li>Fruits</li>
-                    </ol>
-                  </li>
-                </ol>
-              </li>
-              <li>Grocery & Staples</li>
-              <li>Fruits & Vegetables</li>
-            </ol>
-          </div>
-
-          {/* Right Side */}
-          <div className="sitemap-right">
-            <ol>
-              <li>Special Offers</li>
-              <li>
-                My Account
-                <ol>
-                  <li>Account Information</li>
-                  <li>Password</li>
-                  <li>Address Book</li>
-                  <li>Order History</li>
-                  <li>Downloads</li>
-                </ol>
-              </li>
-              <li>Shopping Cart</li>
-              <li>Checkout</li>
-              <li>Search</li>
-              <li>
-                Information
-                <ol>
-                  <li>About Us</li>
-                  <li>Delivery Information</li>
-                  <li>Privacy Policy</li>
-                  <li>Terms & Conditions</li>
-                  <li>Contact Us</li>
-                </ol>
-              </li>
-            </ol>
-          </div>
-        </div>
+      {/* Breadcrumb */}
+      <div className="sm-bread">
+        <Link to="/" className="sm-bread-home">
+          <FaHome className="sm-bread-icon" /> Home
+        </Link>
+        <span className="sm-bread-sep">|</span>
+        <span className="sm-bread-current">Site Map</span>
       </div>
 
-      {/* Scroll to Top Button */}
+      {/* Hero Header */}
+      <div className="sm-top">
+        <div className="sm-pill">
+          <span className="sm-dot"></span>
+          Navigation Guide
+        </div>
+        <h1 className="sm-title">
+          Site <span>Map</span>
+        </h1>
+        <p className="sm-sub">
+          A complete overview of all pages and categories on our website
+        </p>
+      </div>
+
+      {/* Cards Grid */}
+      <div className="sm-grid">
+        {sitemapData.map((section) => (
+          <div key={section.id} className="sm-card">
+            <div className="sm-card-head">
+              <div className="sm-card-icon">{section.icon}</div>
+              <span className="sm-card-title">{section.title}</span>
+            </div>
+            <ul className="sm-list">
+              {section.items.map((item, idx) => (
+                <li key={idx} className="sm-list-item">
+                  {item.label}
+                  {item.children && (
+                    <ul className="sm-sublist">
+                      {item.children.map((child, cidx) => (
+                        <li key={cidx}>{child}</li>
+                      ))}
+                    </ul>
+                  )}
+                </li>
+              ))}
+            </ul>
+          </div>
+        ))}
+      </div>
+
+      {/* Scroll to Top */}
       {showScroll && (
-        <button className="scrollTop" onClick={scrollToTop}>
+        <button className="sm-scroll-top" onClick={scrollToTop} aria-label="Scroll to top">
           <FaArrowUp />
         </button>
       )}

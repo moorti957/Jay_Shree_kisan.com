@@ -6,7 +6,7 @@ import { IoMdCloseCircleOutline } from "react-icons/io";
 import { assets } from "../../assets/assets";
 
 const AIChatProPlus = () => {
-  const apiKey = process.env.REACT_APP_OPENAI_KEY
+
   const [open, setOpen] = useState(false);
   const [messages, setMessages] = useState([
     { sender: "bot", text: "नमस्ते! मैं आपकी कैसे मदद कर सकता हूँ?", time: new Date() }
@@ -23,45 +23,60 @@ const AIChatProPlus = () => {
   const toggleChat = () => setOpen(!open);
 
   const handleSend = async () => {
-    if (!input.trim()) return;
-    const userMessage = { sender: "user", text: input, time: new Date() };
-    setMessages((prev) => [...prev, userMessage]);
-    setInput("");
-    setLoading(true);
 
-    try {
-      const response = await axios.post(
-        "https://api.openai.com/v1/chat/completions",
-        {
-          model: "gpt-4o-mini",
-          messages: [
-            { role: "system", content: "आप एक मददगार सहायक हैं।" },
-            { role: "user", content: input },
-          ],
-        },
-        {
-         headers: {
-  "Authorization": `Bearer ${apiKey}`,
-  "Content-Type": "application/json",
-}
-        }
-      );
+  if (!input.trim()) return;
 
-      const botText = response.data.choices[0].message.content;
-      setMessages((prev) => [
-        ...prev,
-        { sender: "bot", text: botText, time: new Date() },
-      ]);
-    } catch (error) {
-      console.error(error);
-      setMessages((prev) => [
-        ...prev,
-        { sender: "bot", text: "क्षमा करें, कुछ गलती हो गई।", time: new Date() },
-      ]);
-    } finally {
-      setLoading(false);
-    }
+  const userMessage = {
+    sender: "user",
+    text: input,
+    time: new Date(),
   };
+
+  setMessages((prev) => [...prev, userMessage]);
+
+  setInput("");
+
+  setLoading(true);
+
+  try {
+
+    const response = await axios.post(
+      "http://localhost:5000/api/chat",
+      {
+        message: input,
+      }
+    );
+
+    const botText = response.data.reply;
+
+    setMessages((prev) => [
+      ...prev,
+      {
+        sender: "bot",
+        text: botText,
+        time: new Date(),
+      },
+    ]);
+
+  } catch (error) {
+
+    console.log(error.response?.data);
+
+    setMessages((prev) => [
+      ...prev,
+      {
+        sender: "bot",
+        text: "क्षमा करें, कुछ गलती हो गई।",
+        time: new Date(),
+      },
+    ]);
+
+  } finally {
+
+    setLoading(false);
+
+  }
+};
 
   const handleKeyPress = (e) => {
     if (e.key === "Enter") handleSend();

@@ -15,7 +15,7 @@
   padding: 8px 14px;
   font-size: 14px;
   background: #fff;
-  border: 1px solid teal;
+  border: 1px solid rgb(1, 108, 26);
   color: teal;
   border-radius: 3px;
   cursor: pointer;
@@ -23,7 +23,7 @@
 }
 
 .category-btn:hover {
-  background: teal;
+  background: rgb(9, 76, 1);
   color: white;
 }
 

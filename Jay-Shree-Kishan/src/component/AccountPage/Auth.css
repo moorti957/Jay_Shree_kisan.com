@@ -25,19 +25,11 @@
   gap: 10px;
 }
 
-
-.box_123{
-  width: 100%;
-  
-}
-
 .input-col {
   flex: 1;
   display: flex;
   flex-direction: column;
 }
-
-
 
 .signup-form label {
   font-size: 14px;

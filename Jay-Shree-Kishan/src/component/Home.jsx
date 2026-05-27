@@ -12,7 +12,7 @@ import ProductList from './CategoryData/ProductList'
 
 import AboutKisanDeals from './AboutKisanDeals/AboutKisanDeals'
 
-import AIChatProPlus from './LeftSideChat/AIChatProPlus';
+import AgriAIDoctorAdvanced from './Agriculture AI Doctor/AgricultureAI';
 
 
 const Home = () => {
@@ -52,11 +52,8 @@ const Home = () => {
       <Banner />
       <BlogSection />
       <AboutKisanDeals />
-      {/* <LeftSideChat/> */}
-      {/* <AIChatWidget/> */}
-      {/* <AIChatLive/> */}
-      {/* <AIChatPro/> */}
-      <AIChatProPlus/>
+    
+      <AgriAIDoctorAdvanced/>
 
 
 

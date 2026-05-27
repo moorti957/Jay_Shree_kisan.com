@@ -18,7 +18,7 @@ const ProductPage = () => {
 
   // ✅ Backend se products fetch karo
   useEffect(() => {
-   fetch("https://jay-shree-kisan-com.onrender.com/api/products") // yaha pe apna API endpoint dalna
+    fetch("http://localhost:5000/api/products") // yaha pe apna API endpoint dalna
       .then((res) => res.json())
       .then((data) => {
         if (data.success) {
@@ -145,7 +145,7 @@ const ProductPage = () => {
               <div key={product._id} className="product-card">
                 {product.image && (
                   <img
-                   src={`https://jay-shree-kisan-com.onrender.com/uploads/${product.image}`}
+                    src={`http://localhost:5000/uploads/${product.image}`}
                     alt={product.commodity}
                   />
                 )}

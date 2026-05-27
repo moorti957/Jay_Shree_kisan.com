@@ -89,7 +89,6 @@ const SignUp = () => {
           <div className="input-col">
             <label>Last name *</label>
             <input
-             className="box_123"
               type="text"
               name="lastName"
               value={form.lastName}
@@ -142,7 +141,6 @@ const SignUp = () => {
           <div className="input-col">
             <label>Repeat password *</label>
             <input
-            className="box_123" 
               type="password"
               name="repeatPassword"
               value={form.repeatPassword}
