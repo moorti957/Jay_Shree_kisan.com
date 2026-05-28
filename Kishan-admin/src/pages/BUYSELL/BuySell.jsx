@@ -5,6 +5,7 @@ import Swal from "sweetalert2";
 const BuySell = () => {
   const [products, setProducts] = useState([]);
   const [loading, setLoading] = useState(true);
+  const API = import.meta.env.VITE_API_URL;
 
   // ✅ Fetch data
   useEffect(() => {
@@ -13,7 +14,7 @@ const BuySell = () => {
 
   const fetchProducts = async () => {
     try {
-      const res = await fetch("http://localhost:5000/api/products");
+      const res = await fetch(`${API}/api/products`);
       const data = await res.json();
 
       if (data.success) {
@@ -43,7 +44,7 @@ const BuySell = () => {
 
     if (confirm.isConfirmed) {
       try {
-        const res = await fetch(`http://localhost:5000/api/products/${id}`, {
+        const res = await fetch(`${API}/api/products/${id}`, {
           method: "DELETE",
         });
         const data = await res.json();
@@ -101,7 +102,7 @@ const BuySell = () => {
                 <td>
                   {p.image ? (
                     <img
-                      src={`http://localhost:5000/uploads/${p.image}`}
+                     src={`${API}/uploads/${p.image}`}
                       alt={p.commodity}
                       width="70"
                     />

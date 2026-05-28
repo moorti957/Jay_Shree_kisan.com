@@ -4,11 +4,12 @@ import "./subscription.css";
 const Subscription = () => {
   const [orders, setOrders] = useState([]);
   const [loading, setLoading] = useState(true);
+  const API = import.meta.env.VITE_API_URL;
 
   useEffect(() => {
     const fetchOrders = async () => {
       try {
-        const res = await fetch("http://localhost:5000/api/payment/all");
+        const res = await fetch(`${API}/api/payment/all`);
         const data = await res.json();
         setOrders(data);
       } catch (err) {

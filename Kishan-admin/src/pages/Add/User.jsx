@@ -4,11 +4,12 @@ import "./Add.css";
 const User = () => {
   const [users, setUsers] = useState([]);
   const [loading, setLoading] = useState(true);
+  const API = import.meta.env.VITE_API_URL;
 
   useEffect(() => {
     const fetchUsers = async () => {
       try {
-        const res = await fetch("http://localhost:5000/api/users");
+        const res = await fetch(`${API}/api/users`);
         const data = await res.json();
         if (data.success) {
           setUsers(data.users);

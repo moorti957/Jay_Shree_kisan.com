@@ -12,7 +12,9 @@ import AdminRoute from './components/AdminRoute'
 import Login from './pages/Login'
 
 const App = () => {
-  const url = "http://localhost:4000"
+  
+  const url = import.meta.env.VITE_ADMIN_API_URL;
+const frontendAPI = import.meta.env.VITE_API_URL;
 
   return (
     <div>
@@ -37,7 +39,7 @@ const App = () => {
                     <Route path='/list' element={<List url={url}/>}/>
                     <Route path='/buysell' element={<BuySell url={url}/>}/>
                     <Route path='/orders' element={<Orders url={url}/>}/>
-                    <Route path='/subscriber' element={<Subscribers url="http://localhost:5000"/>}/>
+                    <Route path='/subscriber' element={<Subscribers url={frontendAPI}/>}/>
                   </Routes>
                 </div>
               </div>

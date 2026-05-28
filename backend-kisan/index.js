@@ -369,18 +369,18 @@ app.use("/api/admin", adminRoutes);
 // ── Static builds ──────────────────────────────────────────────────────────────
 const __dirname = path.resolve();
 
-const frontendPath = path.join(__dirname, "../Jay-Shree-Kishan/build");
-const adminPath = path.join(__dirname, "../Kishan-admin/build");
+const frontendPath = path.join(__dirname, "../Jay-Shree-Kishan/dist");
+const adminPath = path.join(__dirname, "../Kishan-admin/dist");
 
 app.use("/admin", express.static(adminPath));
 app.get(/^\/admin(\/.*)?$/, (req, res) => {
   res.sendFile(path.join(adminPath, "index.html"));
 });
 
-// app.use(express.static(frontendPath));
-// app.get(/^\/(?!admin).*/, (req, res) => {
-//   res.sendFile(path.join(frontendPath, "index.html"));
-// });
+app.use(express.static(frontendPath));
+app.get(/^\/(?!admin).*/, (req, res) => {
+  res.sendFile(path.join(frontendPath, "index.html"));
+});
 
 // ── Start server ───────────────────────────────────────────────────────────────
 const PORT = process.env.PORT || 5000;
