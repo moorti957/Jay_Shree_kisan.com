@@ -372,12 +372,16 @@ const __dirname = path.resolve();
 const frontendPath = path.join(__dirname, "../Jay-Shree-Kishan/dist");
 const adminPath = path.join(__dirname, "../Kishan-admin/dist");
 
+// Admin Panel
 app.use("/admin", express.static(adminPath));
+
 app.get(/^\/admin(\/.*)?$/, (req, res) => {
   res.sendFile(path.join(adminPath, "index.html"));
 });
 
+// Frontend
 app.use(express.static(frontendPath));
+
 app.get(/^\/(?!admin).*/, (req, res) => {
   res.sendFile(path.join(frontendPath, "index.html"));
 });
