@@ -18,6 +18,7 @@ const Contact = () => {
     email: "",
     enquiry: "",
   });
+  const API = import.meta.env.VITE_API_URL;
 
   const handleChange = (e) => {
     setFormData({ ...formData, [e.target.name]: e.target.value });
@@ -26,7 +27,7 @@ const Contact = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      const res = await axios.post("http://localhost:5000/api/contact", formData);
+      const res = await axios.post(`${API}/api/contact`, formData);
 
       Swal.fire({
         title: "Success!",

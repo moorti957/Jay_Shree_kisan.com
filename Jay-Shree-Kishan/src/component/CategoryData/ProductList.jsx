@@ -12,6 +12,7 @@ const ProductList = () => {
   const [products, setProducts] = useState([]);
   const [searchTerm, setSearchTerm] = useState("");
   const location = useLocation();
+  
   const navigate = useNavigate();
   const [hasPlan, setHasPlan] = useState(false);
   const [popupMessage, setPopupMessage] = useState("");
@@ -20,6 +21,7 @@ const ProductList = () => {
 
   const queryParams = new URLSearchParams(location.search);
   const selectedCategory = queryParams.get("category");
+  const API = import.meta.env.VITE_API_URL;
 
   const showAlert = (msg, showButton = false) => {
     setPopupMessage(msg);
@@ -36,7 +38,7 @@ const ProductList = () => {
     const premiumStatus = localStorage.getItem("hasPremiumPlan");
     setHasPlan(premiumStatus === "true");
 
-    let url = `http://localhost:5000/api/products?type=${activeTab}`;
+    let url = `${API}/api/products?type=${activeTab}`;
     if (selectedCategory) url += `&category=${selectedCategory}`;
 
     fetch(url)
@@ -504,7 +506,7 @@ const ProductList = () => {
                     <div className="pl-img-wrap">
                       {p.image ? (
                         <img
-                          src={`http://localhost:5000/uploads/${p.image}`}
+                          src={`${API}/uploads/${p.image}`}
                           alt={p.commodity}
                         />
                       ) : (

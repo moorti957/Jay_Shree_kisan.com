@@ -7,9 +7,10 @@ import { Link } from "react-router-dom";
 
 function MyProducts() {
  const [products, setProducts] = useState([]);
+ const API = import.meta.env.VITE_API_URL;
  
    useEffect(() => {
-     fetch("http://localhost:5000/api/products")
+     fetch(`${API}/api/products`)
        .then((res) => res.json())
        .then((data) => {
          if (data.success) {
@@ -33,7 +34,7 @@ function MyProducts() {
                {/* Product Image */}
                {p.image && (
                  <img
-                   src={`http://localhost:5000/uploads/${p.image}`}
+                   src={`${API}/uploads/${p.image}`}
                    alt={p.commodity}
                    className="product-img"
                  />

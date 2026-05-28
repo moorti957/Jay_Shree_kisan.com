@@ -4,9 +4,10 @@ import { useParams, Link } from "react-router-dom";
 const CategoryProducts = () => {
   const { category } = useParams();
   const [products, setProducts] = useState([]);
+  const API = import.meta.env.VITE_API_URL;
 
   useEffect(() => {
-    fetch(`http://localhost:5000/api/products?category=${category}`)
+    fetch(`${API}/api/products?category=${category}`)
       .then((res) => res.json())
       .then((data) => {
         if (data.success) {
@@ -29,7 +30,7 @@ const CategoryProducts = () => {
             <div key={p._id} className="product-card">
               {p.image && (
                 <img
-                  src={`http://localhost:5000/uploads/${p.image}`}
+                  src={`${API}/uploads/${p.image}`}
                   alt={p.commodity}
                   className="product-img"
                 />

@@ -14,6 +14,7 @@ const AIChatProPlus = () => {
   const [input, setInput] = useState("");
   const [loading, setLoading] = useState(false);
   const messagesEndRef = useRef(null);
+  const API = import.meta.env.VITE_API_URL;
 
   // Scroll to bottom automatically
   useEffect(() => {
@@ -41,7 +42,7 @@ const AIChatProPlus = () => {
   try {
 
     const response = await axios.post(
-      "http://localhost:5000/api/chat",
+  `${API}/api/chat`,
       {
         message: input,
       }

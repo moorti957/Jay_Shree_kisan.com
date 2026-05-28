@@ -518,6 +518,7 @@ const BuySellForm = () => {
   const [submitting, setSubmitting] = useState(false);
   const [submitted, setSubmitted] = useState(false);
   const fileRef = useRef();
+  const API = import.meta.env.VITE_API_URL;
 
   const handleChange = (e) => {
     const { name, value, type, checked, files } = e.target;
@@ -554,7 +555,7 @@ const BuySellForm = () => {
     try {
       const fd = new FormData();
       Object.entries(formData).forEach(([k, v]) => fd.append(k, v));
-      const res = await fetch("http://localhost:5000/api/products", {
+      const res = await fetch(`${API}/api/products`, {
         method: "POST",
         body: fd,
       });

@@ -9,6 +9,7 @@ const CommentModal = ({ productId }) => {
   const [success, setSuccess] = useState(false);
   const [error, setError] = useState("");
   const [count, setCount] = useState(0);
+  const API = import.meta.env.VITE_API_URL;
 
   // ✅ Fetch comment count when component loads
   useEffect(() => {
@@ -17,7 +18,7 @@ const CommentModal = ({ productId }) => {
 
   const fetchCount = async () => {
     try {
-      const res = await axios.get(`http://localhost:5000/api/comments/count/${productId}`);
+      const res = await axios.get(`${API}/api/comments/count/${productId}`);
       setCount(res.data.count);
     } catch (error) {
       console.error("Error fetching count:", error);
@@ -31,7 +32,7 @@ const CommentModal = ({ productId }) => {
 
     try {
       // ✅ Send data to backend with productId
-      const res = await axios.post("http://localhost:5000/api/comments", {
+      const res = await axios.post(`${API}/api/comments`, {
         productId,
         name,
         comment,

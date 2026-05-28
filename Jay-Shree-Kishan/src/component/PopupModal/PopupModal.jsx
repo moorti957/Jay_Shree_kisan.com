@@ -6,6 +6,7 @@ const PopupModal = () => {
   const [dontShow, setDontShow] = useState(false);
   const [email, setEmail] = useState("");
   const [name, setName] = useState(""); 
+  const API = import.meta.env.VITE_API_URL;
 
   const handleClose = () => {
     if (dontShow) {
@@ -17,7 +18,7 @@ const PopupModal = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      const res = await fetch("http://localhost:5000/api/newsletter", {
+      const res = await fetch(`${API}/api/newsletter`, {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ email, name }), 

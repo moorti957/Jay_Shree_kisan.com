@@ -2,11 +2,14 @@ import React, { useState } from "react";
 import { useLocation } from "react-router-dom";
 import "./Payment.css";
 
+
+
 const Payment = () => {
   const location = useLocation();
   const { plan } = location.state || {};
   const amount = plan ? plan.price.replace("₹", "") : "0";
   const currency = "INR";
+  const API = import.meta.env.VITE_API_URL;
 
   const [popupMessage, setPopupMessage] = useState("");
   const [showPopup, setShowPopup] = useState(false);
@@ -27,7 +30,7 @@ const Payment = () => {
     }
 
     try {
-      const res = await fetch("http://localhost:5000/api/payment/order", {
+      const res = await fetch(`${API}/api/payment/order`, {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ amount, currency }),
@@ -46,7 +49,7 @@ const Payment = () => {
         handler: async function (response) {
           showAlert("Payment Successful!");
           
-          const verifyRes = await fetch("http://localhost:5000/api/payment/verify", {
+         const verifyRes = await fetch(`${API}/api/payment/verify`, {
             method: "POST",
             headers: { "Content-Type": "application/json" },
             body: JSON.stringify(response),

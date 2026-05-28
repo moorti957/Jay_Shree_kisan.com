@@ -7,12 +7,13 @@ const ProductDetail = () => {
   const [product, setProduct] = useState(null);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState("");
+  const API = import.meta.env.VITE_API_URL;
 
   useEffect(() => {
     const fetchProduct = async () => {
       debugger
       try {
-        const res = await fetch(`http://localhost:5000/api/products/${id}`);
+       const res = await fetch(`${API}/api/products/${id}`);
         const data = await res.json();
 
         if (res.ok && data.success) {
@@ -38,7 +39,7 @@ const ProductDetail = () => {
       <div className="product-image">
         {product.image ? (
           <img
-            src={`http://localhost:5000/uploads/${product.image}`}
+            src={`${API}/uploads/${product.image}`}
             alt={product.commodity}
           />
         ) : (
